@@ -10,7 +10,6 @@ int main(int ac, char **av)
 
 	Zombie *ptr = zombieHorde(std::stoi(av[1], nullptr, 10), "Zombie");
 	std::cout << std::endl << "==delete==" << std::endl << std::endl;
-
 	delete [] ptr;
 	return 0;
 }
