@@ -1,8 +1,8 @@
 #include "Zombie.hpp"
 
 Zombie::~Zombie(void){
-	std::cout << this->_name << std::endl;
-};
+	std::cout << "-> " << this->_name << std::endl;
+}
 
 void Zombie::setName(std::string name){
 	this->_name = name;
