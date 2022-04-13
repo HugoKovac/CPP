@@ -10,6 +10,14 @@ Fixed::Fixed(Fixed const &src){
 	_value = src.getRawBits();
 }
 
+Fixed::Fixed(int const value) : _value(value << _bits){
+	std::cout << "Integer constructor called" << std::endl;
+}
+
+Fixed::Fixed(float const value) : _value (std::roundf(value * (1 << _bits))){
+	std::cout << "Float constructor called" << std::endl;
+}
+
 /*operator*/
 Fixed &Fixed::operator=(Fixed const &rhs){
 	std::cout << "Copy assignment operator called" << std::endl;
@@ -28,8 +36,23 @@ void Fixed::setRawBits(int const raw){
 	_value = raw;
 }
 
+int Fixed::toInt(void) const{
+	return (_value >> _bits);
+}
+
+float Fixed::toFloat(void) const{
+	return (_value / (1 << _bits));
+}
+
 /*destructor*/
 Fixed::~Fixed(void){
 
 	std::cout << "Destructor called" << std::endl;
+}
+
+/*None member*/
+
+std::ostream &operator<<(std::ostream &lhs, Fixed &rhs){
+	lhs << rhs.toFloat();
+	return lhs;
 }
