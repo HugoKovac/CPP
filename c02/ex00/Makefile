@@ -1,4 +1,4 @@
-NAME = replace
+NAME = Fixed
 CC = g++
 SRCS = main.cpp Fixed.cpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
