@@ -19,6 +19,12 @@ public:
 	Fixed operator-(Fixed const &rhs);
 	Fixed operator*(Fixed const &rhs);
 	Fixed operator/(Fixed const &rhs);
+
+	Fixed &operator++(void);
+	Fixed &operator--(void);
+	Fixed operator++(int);
+	Fixed operator--(int);
+
 	int operator>(Fixed const &rhs);
 	int operator<(Fixed const &rhs);
 	int operator>(Fixed const &rhs)const;

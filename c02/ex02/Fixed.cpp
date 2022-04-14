@@ -101,6 +101,30 @@ int Fixed::operator!=(Fixed const &rhs){
 	return toFloat() != rhs.toFloat();
 }
 
+Fixed &Fixed::operator++(void){
+	_value++;
+	return *this;
+}
+
+Fixed &Fixed::operator--(void){
+	_value--;
+	return *this;
+}
+
+Fixed Fixed::operator++(int){
+	Fixed tmp = *this;
+	
+	++(*this);
+	return tmp;
+}
+
+Fixed Fixed::operator--(int){
+	Fixed tmp = *this;
+	
+	--(*this);
+	return tmp;
+}
+
 /*non member*/
 std::ostream &operator<<(std::ostream &lhs, Fixed const &rhs){
 	lhs << rhs.toFloat();
