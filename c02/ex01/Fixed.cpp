@@ -21,9 +21,18 @@ Fixed::Fixed(float const value) : _value (std::roundf(value * (1 << _bits))){
 /*operator*/
 Fixed &Fixed::operator=(Fixed const &rhs){
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &rhs)
-		_value = rhs.getRawBits();
+	_value = rhs.getRawBits();
 	return *this;
+}
+
+std::ostream &operator<<(std::ostream &lhs, Fixed const &rhs){
+	lhs << rhs.toFloat();
+	return lhs;
+}
+
+std::ostream &operator<<(std::ostream &lhs, Fixed &rhs){
+	lhs << rhs.toFloat();
+	return lhs;
 }
 
 /*Member functions*/
@@ -41,7 +50,7 @@ int Fixed::toInt(void) const{
 }
 
 float Fixed::toFloat(void) const{
-	return (_value / (1 << _bits));
+	return ((float)_value / (float)(1 << _bits));
 }
 
 /*destructor*/
@@ -50,9 +59,3 @@ Fixed::~Fixed(void){
 	std::cout << "Destructor called" << std::endl;
 }
 
-/*None member*/
-
-std::ostream &operator<<(std::ostream &lhs, Fixed &rhs){
-	lhs << rhs.toFloat();
-	return lhs;
-}

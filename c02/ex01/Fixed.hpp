@@ -26,5 +26,6 @@ public:
 
 /*operator not member*/
 std::ostream &operator<<(std::ostream &lhs, Fixed &rhs);
+std::ostream &operator<<(std::ostream &lhs, Fixed const &rhs);
 
 #endif
