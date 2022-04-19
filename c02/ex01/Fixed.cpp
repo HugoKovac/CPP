@@ -14,7 +14,7 @@ Fixed::Fixed(int const value) : _value(value << _bits){
 	std::cout << "Integer constructor called" << std::endl;
 }
 
-Fixed::Fixed(float const value) : _value (std::roundf(value * (1 << _bits))){
+Fixed::Fixed(float const value) : _value (roundf(value * (1 << _bits))){
 	std::cout << "Float constructor called" << std::endl;
 }
 

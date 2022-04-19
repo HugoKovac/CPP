@@ -9,7 +9,7 @@ Fixed::Fixed(Fixed const &src){
 
 Fixed::Fixed(int const value) : _value(value << _bits){}
 
-Fixed::Fixed(float const value) : _value (std::roundf(value * (1 << _bits))){}
+Fixed::Fixed(float const value) : _value (roundf(value * (1 << _bits))){}
 
 /*Member functions*/
 int Fixed::getRawBits(void) const{
