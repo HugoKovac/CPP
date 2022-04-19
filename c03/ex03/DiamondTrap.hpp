@@ -13,8 +13,8 @@ public :
 	DiamondTrap &operator=(DiamondTrap const &rhs);
 	~DiamondTrap(void);
 
-	
-
+	void attack(std::string const str);
+	void whoAmI(void);
 };
 
 #endif
