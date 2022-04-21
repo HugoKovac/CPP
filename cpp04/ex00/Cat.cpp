@@ -19,3 +19,6 @@ Cat::~Cat(void){
     std::cout << "Default Cat Destructor" << std::endl;
 }
 
+void Cat::makeSound(void)const{
+        std::cout << _type << " : Miaou!" << std::endl;
+}

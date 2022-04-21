@@ -9,6 +9,8 @@ public:
     Dog(Dog const &src);
     Dog &operator=(Dog const &rhs);
     ~Dog(void);
+
+    void makeSound(void)const;
 };
 
 #endif
