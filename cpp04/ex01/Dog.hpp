@@ -4,6 +4,7 @@
 #include "Animal.hpp"
 
 class Dog : public Animal{
+    Brain *_brain;
 public:
     Dog(void);
     Dog(Dog const &src);

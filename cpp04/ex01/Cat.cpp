@@ -2,6 +2,7 @@
 
 Cat::Cat(void) : Animal("Cat"){
     std::cout << "Default Cat Constructor" << std::endl;
+    _brain = new Brain();
 }
 
 Cat::Cat(Cat const &src){
@@ -17,6 +18,7 @@ Cat &Cat::operator=(Cat const &rhs){
 
 Cat::~Cat(void){
     std::cout << "Default Cat Destructor" << std::endl;
+    delete _brain;
 }
 
 void Cat::makeSound(void)const{

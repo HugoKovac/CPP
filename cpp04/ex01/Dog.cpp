@@ -2,6 +2,7 @@
 
 Dog::Dog(void) : Animal("Dog"){
     std::cout << "Default Dog Constructor" << std::endl;
+    _brain = new Brain();
 }
 
 Dog::Dog(Dog const &src){
@@ -17,6 +18,7 @@ Dog &Dog::operator=(Dog const &rhs){
 
 Dog::~Dog(void){
     std::cout << "Default Dog Destructor" << std::endl;
+    delete _brain;
 }
 
 void Dog::makeSound(void)const{
