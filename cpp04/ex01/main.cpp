@@ -3,44 +3,34 @@
 #include "Dog.hpp"
 #include <iostream>
 
+#define SIZE 4
+
 int main()
 {
-    std::cout <<std::endl<<"========================" <<std::endl<<std::endl;
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+
+    if (SIZE < 1 || SIZE % 2)
+    {
+        std::cout << "Error with size of Animal array!" << std::endl;
+        return 1;
+    }
+
+    std::cout << std::endl<<"========================" << std::endl << std::endl;
+    Animal *arr[SIZE];
+    for (int i = 0; i < SIZE; i++)
+    {
+        if (i < SIZE / 2)
+            arr[i] = new Dog();
+        else
+            arr[i] = new Cat();
+    }
     std::cout << std::endl;
     std::cout << "========================" <<std::endl<<std::endl;
 
-    std::cout << meta->getType() << " <=" << std::endl;
-    std::cout << j->getType() << " <=" << std::endl;
-    std::cout << i->getType() << " <=" << std::endl << std::endl;
 
-    i->makeSound();
-    j->makeSound();
-    meta->makeSound();
 
     std::cout <<std::endl<<"========================" <<std::endl<<std::endl;
-    delete meta;
-    delete j;
-    delete i;
-    std::cout <<std::endl<<"========================" <<std::endl<<std::endl;
-
-    std::cout <<std::endl<<"========================" <<std::endl<<std::endl;
-    const WrongAnimal* meta2 = new WrongAnimal();
-    const WrongAnimal* i2 = new WrongCat();
-    std::cout << std::endl;
-    std::cout << "========================" <<std::endl<<std::endl;
-
-    std::cout << meta2->getType() << " <=" << std::endl;
-    std::cout << i2->getType() << " <=" << std::endl << std::endl;
-
-    i2->makeSound();
-    meta2->makeSound();
-
-    std::cout <<std::endl<<"========================" <<std::endl<<std::endl;
-    delete meta2;
-    delete i2;
+    for (int i = 0; i < SIZE; i++)
+        delete arr[i];
     std::cout <<std::endl<<"========================" <<std::endl<<std::endl;
 
     return 0;

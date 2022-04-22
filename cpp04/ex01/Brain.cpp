@@ -9,7 +9,8 @@ Brain::Brain(Brain const &src){
 }
 Brain &Brain::operator=(Brain const &src){
     if (this != &src)
-        _ideas = src._ideas;
+        for (int i = 0; i < 100; i++)
+            _ideas[i] = src._ideas[i];
     return *this;
 }
 
