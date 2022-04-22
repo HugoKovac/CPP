@@ -3,10 +3,25 @@
 #include "Dog.hpp"
 #include <iostream>
 
-#define SIZE 4
+#define SIZE 100
 
 int main()
 {
+
+    std::cout << std::endl<<"========================" << std::endl << std::endl;
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+    std::cout << std::endl;
+    std::cout << "========================" <<std::endl<<std::endl;
+    
+    j->makeSound();
+    i->makeSound();
+
+    std::cout << std::endl<<"========================" << std::endl << std::endl;
+    delete j;
+    delete i;
+    std::cout << std::endl;
+    std::cout << "========================" <<std::endl<<std::endl;
 
     if (SIZE < 1 || SIZE % 2)
     {
@@ -25,8 +40,9 @@ int main()
     }
     std::cout << std::endl;
     std::cout << "========================" <<std::endl<<std::endl;
-
-
+    
+    for (int i = 0; i < SIZE; i++)
+        arr[i]->makeSound();
 
     std::cout <<std::endl<<"========================" <<std::endl<<std::endl;
     for (int i = 0; i < SIZE; i++)
