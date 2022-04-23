@@ -9,5 +9,5 @@ std::string const &AMateria::getType(void)const{
 }
 
 void AMateria::use(ICharacter &target){
-	std::cout << type << " : \"* shoots an ice bolt at " << target.getName() << " *\""
+	std::cout << type << " : \"* shoots an ice bolt at " << target.getName() << " *\""//pb with target wich is ICharacter
 }

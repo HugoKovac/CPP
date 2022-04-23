@@ -12,7 +12,7 @@ Character :
  - <Constcutor> void init tout vide
  - <Constcutor> avec name en param
  - <Constcutor> de recopie et <operator> '=' doivent delete les Materials du Character avant de les remplacer
- - Possede 4 Materias (tab de 4 (A/I)Materia?)
+ - Possede 4 Materias (tab de 4 AMateria?)
  - init les Materia de 0 a 3
  - <Fonction> 'equip' init un des materia avec un l'addresse d'un AMateria passe en param
  - <Fonction> 'unequip' ne peut plus use le materia index passe en param mais ne le delete pas
@@ -30,9 +30,9 @@ MateriaSource :
 ***************
 
 Ice :
- - <Class> concrete de (A/I)Materia?
+ - <Class> concrete de AMateria?
  - <String> type dans AMateria
 
 Cure : 
- - <Class> concrete de (A/I)Materia?
+ - <Class> concrete de AMateria?
  - <String> type dans AMateria

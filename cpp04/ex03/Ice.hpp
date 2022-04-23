@@ -6,6 +6,9 @@
 class Ice : public AMateria{
 public :
 	Ice(void) : AMateria("Ice"){}
+	Ice(Ice const &src);
+	Ice &operator=(Ice const &rhs);
+	~Ice(void){};
 	AMateria *clone(void)const;
 };
 

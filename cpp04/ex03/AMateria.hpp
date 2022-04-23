@@ -5,6 +5,7 @@
 #include <iostream>
 
 class ICharacter;
+// std::string const &ICharacter::getName(void) const;
 
 class AMateria
 {
