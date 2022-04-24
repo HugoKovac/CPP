@@ -28,15 +28,19 @@ void MateriaSource::learnMateria(AMateria* src){
 		if (_nb_learned < 4)
 			source[_nb_learned++] = src;
 		else
+		{
+			delete src;
 			std::cout << "Already 4 Materia learned" << std::endl;
+		}
 	}
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type){
-	if (type.compare("cure") == 0)
-		return new Cure();
-	else if (type.compare("ice") == 0)
-		return new Ice();
-	std::cout << "Types : Cure or Ice" << std::endl;
+	if (_nb_learned < 4)
+	{
+		for (int i = 0; i < 4; i++)
+			if (source[i] && type.compare(source[i]->getType()) == 0)
+				return (source[i]->clone());
+	}
 	return nullptr;
 }

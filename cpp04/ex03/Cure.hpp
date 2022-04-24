@@ -5,7 +5,7 @@
 
 class Cure : public AMateria{
 public :
-	Cure(void) : AMateria("Cure"){}
+	Cure(void) : AMateria("cure"){}
 	Cure(Cure const &src);
 	Cure &operator=(Cure const &rhs);
 	~Cure(void){};

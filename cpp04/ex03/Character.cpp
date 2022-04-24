@@ -26,7 +26,7 @@ std::string const &Character::getName(void) const{
 }
 
 void Character::unequip(int idx){
-	if (_nb_materia > 0 && _nb_materia < 5)
+	if (_nb_materia > 0 && idx < _nb_materia && idx >= 0 && idx < 4)
 	{
 		_Materia[idx] = nullptr;
 		_nb_materia--;
@@ -34,6 +34,6 @@ void Character::unequip(int idx){
 }
 
 void Character::use(int idx, ICharacter& target){
-	if (_nb_materia > 0)
+	if (_nb_materia > 0 && idx < _nb_materia && idx >= 0 && idx < 4)
 		_Materia[idx]->use(target);
 }
