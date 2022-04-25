@@ -72,29 +72,22 @@ void Character::del(){
 	{
 		while (tmp->_next != NULL)
 		{
+			std::cout << " => " << tmp->_del_Materia << std::endl;
 			temp = tmp;
 			tmp2 = tmp->_next;
 			tmp = tmp->_next;
 			while (tmp2 != NULL)
 			{
-				if (temp == tmp2)
+				if (temp->_del_Materia == tmp2->_del_Materia)
 					break;
 				tmp2 = tmp2->_next;
 			}
 			if (tmp2 == NULL)
 				delete temp->_del_Materia;
-			delete tmp2;
+			delete temp;
 		}
-		/*
-		while (tmp->_next != NULL)
-		{
-			std::cout << "test" << std::endl;
-			tmp2 = tmp;
-			tmp = tmp->_next;
-			delete tmp2;
-		}
-		delete tmp->_next;
-		*/
+		delete tmp->_del_Materia;
+		delete tmp;
 	}
 }
 
