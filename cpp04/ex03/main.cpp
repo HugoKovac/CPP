@@ -26,7 +26,7 @@ int main()
 	tmp = create2->createMateria("cure");
 	p1->equip(tmp);
 	p1->unequip(0);
-	p1->unequip(1);
+	// p1->unequip(1);
 	p1->unequip(2);
 	p1->unequip(3);
 	p1->unequip(3);

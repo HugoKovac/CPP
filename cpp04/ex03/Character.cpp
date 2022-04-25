@@ -1,8 +1,10 @@
 #include "Character.hpp"
 
-Del *Character::_first = nullptr;
+Del *Character::_first = NULL;
 
-Character::Character(std::string const &name) : _name(name), _nb_materia(0){}
+Character::Character(std::string const &name) : _name(name), _nb_materia(0){
+	for (int i = 0; i < 4; _Materia[i] = NULL, i++);
+}
 
 Character::~Character(void){
 	for (int i = 0; i < 4; i++)
@@ -29,23 +31,27 @@ std::string const &Character::getName(void) const{
 }
 
 void Character::unequip(int idx){
-	if (_nb_materia > 0 && idx < _nb_materia && idx >= 0 && idx < 4)
+	if (idx >= 0 && idx < 4 && _Materia[idx])
 	{
-		_Materia[idx] = nullptr;
+		newNode(_Materia[idx]);
+		_Materia[idx] = NULL;
 		_nb_materia--;
 	}
 }
 
 void Character::use(int idx, ICharacter& target){
-	if (_nb_materia > 0 && idx < _nb_materia && idx >= 0 && idx < 4)
+	if (idx >= 0 && idx < 4 && _Materia[idx])
 		_Materia[idx]->use(target);
 }
 
 void Character::newNode(AMateria *data){
 	Del *newNode = new Del(data);
 
-	if (_first == nullptr)
+
+	if (_first == NULL)
+	{
 		_first = newNode;
+	}
 	else
 	{
 		Del *tmp = _first;
@@ -56,11 +62,16 @@ void Character::newNode(AMateria *data){
 }
 
 void Character::del(){
-	while (_first->_next != nullptr)
-		if (_first->_del_Materia)
+	Del *tmp = _first;
+
+	if (_first)
+	{
+		while (tmp->_next != NULL)
 		{
-			delete _first->_del_Materia;
-			_first->_del_Materia = nullptr;
+			delete tmp->_del_Materia;
+			tmp->_del_Materia = NULL;
+			tmp = tmp->_next;
 		}
+	}
 }
 

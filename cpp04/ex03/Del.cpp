@@ -1,9 +1,9 @@
 #include "Del.hpp"
 
-Del::Del() : _del_Materia(nullptr), _next(nullptr){
+Del::Del() : _del_Materia(NULL), _next(NULL){
 }
 
-Del::Del(AMateria *newNode) : _del_Materia(newNode), _next(nullptr){
+Del::Del(AMateria *newNode) : _del_Materia(newNode), _next(NULL){
 }
 
 Del::Del(Del const &src){

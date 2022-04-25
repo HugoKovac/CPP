@@ -2,7 +2,7 @@
 
 MateriaSource::MateriaSource(void){
 	_nb_learned = 0;
-	for (int i = 0; i < 4; source[i] = nullptr, i++);
+	for (int i = 0; i < 4; source[i] = NULL, i++);
 }
 
 MateriaSource::MateriaSource(MateriaSource const &src){
@@ -42,5 +42,5 @@ AMateria *MateriaSource::createMateria(std::string const &type){
 			if (source[i] && type.compare(source[i]->getType()) == 0)
 				return (source[i]->clone());
 	}
-	return nullptr;
+	return NULL;
 }
