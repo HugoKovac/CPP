@@ -11,7 +11,7 @@ public:
 	Del(AMateria *newNode);
 	Del(Del const &src);
 	Del &operator=(Del const &rhs);
-	~Del(){}
+	~Del();
 };
 
 #endif

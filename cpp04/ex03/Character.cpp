@@ -63,15 +63,17 @@ void Character::newNode(AMateria *data){
 
 void Character::del(){
 	Del *tmp = _first;
+	Del *tmp2;
 
 	if (_first)
 	{
 		while (tmp->_next != NULL)
 		{
-			delete tmp->_del_Materia;
-			tmp->_del_Materia = NULL;
+			tmp2 = tmp;
 			tmp = tmp->_next;
+			delete tmp2;
 		}
+		delete tmp->_next;
 	}
 }
 

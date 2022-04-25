@@ -10,6 +10,7 @@ Ice &Ice::operator=(Ice const &rhs){
 }
 
 AMateria *Ice::clone(void)const{
+	std::cout << " etst" << std::endl;
 	return new Ice();
 }
 
