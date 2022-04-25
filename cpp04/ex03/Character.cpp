@@ -64,33 +64,37 @@ void Character::newNode(AMateria *data){
 
 void Character::del(){
 	Del *tmp = _first;
+	Del *temp;
 	Del *tmp2;
-	Del *tmp3;
 
 	Character::done = 1;
 	if (_first)
 	{
 		while (tmp->_next != NULL)
 		{
-			tmp2 = tmp;
-			tmp3 = tmp;
+			temp = tmp;
+			tmp2 = tmp->_next;
 			tmp = tmp->_next;
-			while (1)
+			while (tmp2 != NULL)
 			{
-				if (tmp3 == tmp2)
-				{
-					delete tmp2;
+				if (temp == tmp2)
 					break;
-				}
-				else if (tmp3->_next == NULL)
-				{
-					delete tmp2->_del_Materia;
-					delete tmp2;
-					break;
-				}
-				tmp3 = tmp3->_next;
+				tmp2 = tmp2->_next;
 			}
+			if (tmp2 == NULL)
+				delete temp->_del_Materia;
+			delete tmp2;
 		}
+		/*
+		while (tmp->_next != NULL)
+		{
+			std::cout << "test" << std::endl;
+			tmp2 = tmp;
+			tmp = tmp->_next;
+			delete tmp2;
+		}
+		delete tmp->_next;
+		*/
 	}
 }
 

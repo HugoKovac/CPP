@@ -17,20 +17,20 @@ int main()
 
 	tmp = create1->createMateria("ice");
 	p1->equip(tmp);
-	p1->equip(tmp);
+	// p1->equip(tmp);
 	p1->equip(create2->createMateria("cure"));
 
 	p1->use(0, *p1);
 	p1->use(1, *p1);
-	p1->use(2, *p1);
+	// p1->use(2, *p1);
 	
 	p1->unequip(0);
 	p1->unequip(1);
-	p1->unequip(2);
+	// p1->unequip(2);
 
 	p1->use(0, *p1);
 	p1->use(1, *p1);
-	p1->use(2, *p1);
+	// p1->use(2, *p1);
 
 	p2->equip(create1->createMateria("ice"));
 	p2->equip(create2->createMateria("cure"));
@@ -49,26 +49,26 @@ int main()
 	delete create1;
 	delete create2;
 
-	// IMateriaSource* src = new MateriaSource();
-	// src->learnMateria(new Ice());
-	// src->learnMateria(new Cure());
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 
-	// ICharacter* me = new Character("me");
+	ICharacter* me = new Character("me");
 
-	// AMateria* tmp2;
-	// tmp2 = src->createMateria("ice");
-	// me->equip(tmp2);
-	// tmp2 = src->createMateria("cure");
-	// me->equip(tmp2);
+	AMateria* tmp2;
+	tmp2 = src->createMateria("ice");
+	me->equip(tmp2);
+	tmp2 = src->createMateria("cure");
+	me->equip(tmp2);
 
-	// ICharacter* bob = new Character("bob");
+	ICharacter* bob = new Character("bob");
 
-	// me->use(0, *bob);
-	// me->use(1, *bob);
+	me->use(0, *bob);
+	me->use(1, *bob);
 
-	// delete bob;
-	// delete me;
-	// delete src;
+	delete bob;
+	delete me;
+	delete src;
 	
 
 	return 0;
