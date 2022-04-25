@@ -9,6 +9,7 @@ class Character : public ICharacter{
 	AMateria *_Materia[4];
 	int _nb_materia;
 	static Del *_first;
+	static bool done;
 public:
 	Character(void){}
 	Character(std::string const &name);

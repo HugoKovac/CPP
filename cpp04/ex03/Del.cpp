@@ -7,7 +7,6 @@ Del::Del(AMateria *newNode) : _del_Materia(newNode), _next(NULL){
 }
 
 Del::~Del(){
-	delete _del_Materia;
 }
 
 Del::Del(Del const &src){

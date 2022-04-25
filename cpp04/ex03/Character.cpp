@@ -1,6 +1,7 @@
 #include "Character.hpp"
 
 Del *Character::_first = NULL;
+bool Character::done = 0;
 
 Character::Character(std::string const &name) : _name(name), _nb_materia(0){
 	for (int i = 0; i < 4; _Materia[i] = NULL, i++);
@@ -10,7 +11,8 @@ Character::~Character(void){
 	for (int i = 0; i < 4; i++)
 		if (_Materia[i])
 			delete _Materia[i];
-	del();
+	if (Character::done == 0)
+		del();
 }
 
 void Character::equip(AMateria* m){
@@ -47,7 +49,6 @@ void Character::use(int idx, ICharacter& target){
 void Character::newNode(AMateria *data){
 	Del *newNode = new Del(data);
 
-
 	if (_first == NULL)
 	{
 		_first = newNode;
@@ -64,16 +65,32 @@ void Character::newNode(AMateria *data){
 void Character::del(){
 	Del *tmp = _first;
 	Del *tmp2;
+	Del *tmp3;
 
+	Character::done = 1;
 	if (_first)
 	{
 		while (tmp->_next != NULL)
 		{
 			tmp2 = tmp;
+			tmp3 = tmp;
 			tmp = tmp->_next;
-			delete tmp2;
+			while (1)
+			{
+				if (tmp3 == tmp2)
+				{
+					delete tmp2;
+					break;
+				}
+				else if (tmp3->_next == NULL)
+				{
+					delete tmp2->_del_Materia;
+					delete tmp2;
+					break;
+				}
+				tmp3 = tmp3->_next;
+			}
 		}
-		delete tmp->_next;
 	}
 }
 
