@@ -1,3 +1,6 @@
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
+
 #include <exception>
 #include <string>
 #include <iostream>
@@ -27,3 +30,5 @@ public:
 
 std::ostream &operator<<(std::ostream &lhs, Bureaucrat &rhs);
 std::ostream &operator<<(std::ostream &lhs, std::exception const &rhs);
+
+#endif
