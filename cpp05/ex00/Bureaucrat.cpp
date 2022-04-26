@@ -15,7 +15,6 @@ Bureaucrat::Bureaucrat(Bureaucrat const &src){
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs){
-	_name = rhs._name;
 	_grade = rhs._grade;
 	return *this;
 }

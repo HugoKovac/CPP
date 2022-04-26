@@ -3,7 +3,7 @@
 #include <iostream>
 
 class Bureaucrat{
-	std::string _name;
+	std::string const _name;
 	int _grade;
 public:
 	Bureaucrat(std::string const name, int const grade);
