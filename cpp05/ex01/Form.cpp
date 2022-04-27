@@ -1,3 +1,4 @@
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 Form::Form(std::string name, int sign_grade, int exec_grade)
