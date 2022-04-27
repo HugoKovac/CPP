@@ -21,11 +21,11 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs){
 
 
 
-int Bureaucrat::getGrade(){
+int Bureaucrat::getGrade()const{
 	return _grade;
 }
 
-std::string Bureaucrat::getName(){
+std::string Bureaucrat::getName()const{
 	return _name;
 }
 

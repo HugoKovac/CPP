@@ -4,6 +4,7 @@
 #include <exception>
 #include <string>
 #include <iostream>
+#include "Form.hpp"
 
 class Bureaucrat{
 	std::string const _name;
@@ -14,11 +15,13 @@ public:
 	Bureaucrat &operator=(Bureaucrat const &rhs);
 	~Bureaucrat(){}
 	
-	int getGrade();
-	std::string getName();
+	int getGrade()const;
+	std::string getName()const;
 
 	void upGrade();
 	void downGrade();
+
+	void signForm(Form &src)const;
 
 	class GradeTooHighException : public std::exception{
 		virtual const char* what() const throw();

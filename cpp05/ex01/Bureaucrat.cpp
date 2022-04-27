@@ -21,11 +21,11 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs){
 
 
 
-int Bureaucrat::getGrade(){
+int Bureaucrat::getGrade()const{
 	return _grade;
 }
 
-std::string Bureaucrat::getName(){
+std::string Bureaucrat::getName()const{
 	return _name;
 }
 
@@ -40,6 +40,15 @@ void Bureaucrat::downGrade(){
 	++_grade;
 }
 
+void Bureaucrat::signForm(Form &src)const{
+	try{
+		src.beSigned(*this);
+	}catch (std::exception e){
+		std::cout << _name << " couldn't sign " << src.getName()
+		<< " because " << e << std::endl;
+	}
+	std::cout << _name << " signed " << src.getName() << std::endl;
+}
 
 const char* GTHighE::what() const throw(){
 	return ("Grade too high!");

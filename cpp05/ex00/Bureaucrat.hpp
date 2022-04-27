@@ -14,8 +14,8 @@ public:
 	Bureaucrat &operator=(Bureaucrat const &rhs);
 	~Bureaucrat(){}
 	
-	int getGrade();
-	std::string getName();
+	int getGrade()const;
+	std::string getName()const;
 
 	void upGrade();
 	void downGrade();
