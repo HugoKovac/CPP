@@ -9,6 +9,10 @@ class RobotomyRequestForm : public AForm{
 	std::string const _target;
 public:
 	RobotomyRequestForm(std::string const &target);
+	RobotomyRequestForm(RobotomyRequestForm const &src);
+	RobotomyRequestForm &operator=(RobotomyRequestForm const &rhs);
+	~RobotomyRequestForm(){}
+
 	void execute(Bureaucrat const & executor)const;
 	void makeDrillSouds()const;
 };

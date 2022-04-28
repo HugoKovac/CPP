@@ -5,6 +5,17 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target)
 : AForm("ShrubberyCreationForm", 145, 137), _target(target){
 }
 
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src) : AForm("ShrubberyCreationForm", 145, 137){
+	*this = src;
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &rhs){
+	setSign(rhs.getSign());
+	setGrade_s(rhs.getGrade_s());
+	setGrade_e(rhs.getGrade_e());
+	return *this;
+}
+
 void ShrubberyCreationForm::execute(Bureaucrat const & executor)const{
 	std::ofstream new_file;
 	std::string file_name = _target;

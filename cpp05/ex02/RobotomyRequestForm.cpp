@@ -7,6 +7,17 @@ RobotomyRequestForm::RobotomyRequestForm(std::string const &target)
 : AForm("RobotomyRequestForm", 72, 45), _target(target){
 }
 
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &src) : AForm("RobotomyRequestForm", 72, 45){
+	*this = src;
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &rhs){
+	setSign(rhs.getSign());
+	setGrade_s(rhs.getGrade_s());
+	setGrade_e(rhs.getGrade_e());
+	return *this;
+}
+
 void RobotomyRequestForm::makeDrillSouds()const{
 	_robot *= -1;
 	std::cout << "Drill sounds" << std::endl;

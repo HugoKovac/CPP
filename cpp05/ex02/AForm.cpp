@@ -38,6 +38,18 @@ int AForm::getGrade_e()const{
 	return _exec_grade;
 }
 
+void AForm::setSign(bool sign){
+	_signed = sign;
+}
+
+void AForm::setGrade_s(int sign_grade){
+	_sign_grade = sign_grade;
+}
+
+void AForm::setGrade_e(int exec_grade){
+	_exec_grade = exec_grade;
+}
+
 void AForm::beSigned(Bureaucrat const &src){
 	if (src.getGrade() > _sign_grade)
 		throw AForm::GradeTooLowException();

@@ -37,6 +37,10 @@ public:
 	bool getSign()const;
 	int getGrade_s()const;
 	int getGrade_e()const;
+	void setSign(bool sign);
+	void setGrade_s(int sign_grade);
+	void setGrade_e(int exec_grade);
+
 	void beSigned(Bureaucrat const &src);
 	virtual void execute(Bureaucrat const & executor)const = 0;
 };
