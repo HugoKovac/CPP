@@ -1,4 +1,5 @@
 #include "Intern.hpp"
+#include <functional>
 
 Intern::Intern(){
 	_formCmp[0] = "robotomy request";
@@ -18,9 +19,8 @@ AForm *Intern::makeForm(std::string const &form_name, std::string const &target)
 		}
 	if (done == -1)
 		throw BadNameException();
-	// std::cout << _funcPtr[done] << std::endl;
-	// std::cout << &Intern::makeRoboty << std::endl;
-	AForm* FormPtr = (*_funcPtr[done])(target);
+	// AForm* FormPtr = 
+	(*this->_funcPtr)[done];
 	std::cout << "Intern creates "	 << std::endl;//! Name of Form
 	(void)target;
 	return NULL;

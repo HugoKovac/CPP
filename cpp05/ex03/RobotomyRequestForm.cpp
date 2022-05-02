@@ -27,6 +27,7 @@ void RobotomyRequestForm::makeDrillSouds()const{
 		std::cout << _target << " has not been robotized with success" << std::endl;
 }
 
+
 void RobotomyRequestForm::execute(Bureaucrat const & executor)const{
 	if (getSign() == false)
 		throw AForm::FormNotSignException();
