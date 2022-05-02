@@ -25,7 +25,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)const{
 		throw AForm::FormNotSignException();
 	if (executor.getGrade() > getGrade_e())
 		throw AForm::GradeTooLowExecException();
-	new_file.open(file_name);
+	new_file.open(file_name.c_str());
 	if (!new_file.is_open()){
 		std::cout << "Problem when opening file" <<std::endl;return;}
 	new_file << "└──8" << std::endl

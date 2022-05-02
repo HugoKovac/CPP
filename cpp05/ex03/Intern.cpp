@@ -19,11 +19,9 @@ AForm *Intern::makeForm(std::string const &form_name, std::string const &target)
 		}
 	if (done == -1)
 		throw BadNameException();
-	// AForm* FormPtr = 
-	(*this->_funcPtr)[done];
-	std::cout << "Intern creates "	 << std::endl;//! Name of Form
-	(void)target;
-	return NULL;
+	AForm *FormPtr = (this->*(_funcPtr[0]))(target);	
+	std::cout << "Intern creates " << FormPtr->getName() << std::endl;//! Name of Form
+	return FormPtr;
 }
 
 const char* Intern::BadNameException::what()const throw(){

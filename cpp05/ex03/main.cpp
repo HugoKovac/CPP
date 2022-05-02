@@ -7,9 +7,14 @@
 int main(void){
 
 	try{
-		Intern p1;
+		Intern f1;
+		Bureaucrat p1("Jean", 5);
 
-		p1.makeForm("shrubbery creation", "test");
+		AForm *test = f1.makeForm("shrubbery creation", "TEST");
+		test->getName();
+		p1.signForm(*test);
+		test->execute(p1);
+		delete test;
 	}
 	catch (std::exception &e){
 		std::cerr << e << std::endl;
