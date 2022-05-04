@@ -1,6 +1,6 @@
 NAME = Cast
 CC = c++
-SRCS = main.cpp
+SRCS = main.cpp NumberCaster.cpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 OBJS = $(SRCS:.cpp=.o)
 
