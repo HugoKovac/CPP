@@ -11,13 +11,25 @@ void NumberCaster::what_is_it(std::string const &str){
 	}
 }
 
-NumberCaster::NumberCaster(std::string const &src) : it_is(-1), input(src){
+NumberCaster::NumberCaster(std::string const &src) : it_is(-1), input(src), inf_or_nan(-1){
+	cmpStr[0] = "+inf";
+	cmpStr[1] = "+inff";
+	cmpStr[2] = "-inf";
+	cmpStr[3] = "-inff";
+	cmpStr[4] = "nan";
+	for (int i = 0; i < 5; i++)
+		if (input.compare(cmpStr[i]) == 0)
+		{
+			inf_or_nan = i;
+			break ;
+		}
 	type_check[CHAR] = &NumberCaster::is_char;
 	type_check[INTEGER] = &NumberCaster::is_integer;
 	type_check[DOUBLE] = &NumberCaster::is_double;
 	type_check[FLOAT] = &NumberCaster::is_float;
 	type_check[STRING] = &NumberCaster::is_str;
-	what_is_it(input);
+	if (inf_or_nan == -1)
+		what_is_it(input);
 	cast_all();
 }
 
@@ -43,8 +55,11 @@ bool NumberCaster::is_float(std::string const &str){
 		return false;
 	std::string sub1;
 	std::string sub2;
-	int i;
-	for (i = 0; str[i] != '.'; i++);
+	bool comma = false;
+	size_t i;
+	for (i = 0; str[i] != '.' && str[i];comma = str[i] == '.', i++);
+	if (comma == false)
+		return false;
 	sub1 = str.substr(0, i);
 	sub2 = str.substr(i + 1);
 	sub2.erase(sub2.length() - 1);
@@ -102,7 +117,7 @@ void NumberCaster::cast_all(){
 }
 
 void NumberCaster::printAllCast(){
-	if (it_is != STRING)
+	if (it_is != STRING && inf_or_nan == -1)
 	{
 		if (int_casted < 32 || int_casted > 126)
 			std::cout << "char: not displayable" << std::endl;
@@ -119,5 +134,11 @@ void NumberCaster::printAllCast(){
 			std::cout << ".0" << std::endl;
 		else
 			std::cout << std::endl;
+	}
+	else if (inf_or_nan != -1){
+		std::cout << "char: " << cmpStr[inf_or_nan] << std::endl;
+		std::cout << "int: " << cmpStr[inf_or_nan] << std::endl;
+		std::cout << "float: " << cmpStr[inf_or_nan] << std::endl;
+		std::cout << "double: " << cmpStr[inf_or_nan] << std::endl;
 	}
 }

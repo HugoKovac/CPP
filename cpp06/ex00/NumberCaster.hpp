@@ -22,6 +22,8 @@ class NumberCaster{
 	char char_casted;
 	std::string input;
 	bool (NumberCaster::*type_check[5])(std::string const &str);
+	std::string cmpStr[5];
+	int inf_or_nan;
 	
 	//! faire les cas d'erreur
 	/*
