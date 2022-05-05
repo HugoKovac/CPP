@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "NumberCaster.hpp"
+#include <cstdlib>
 
 int main(int ac, char **av){
 	if (ac != 2){

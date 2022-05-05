@@ -2,11 +2,15 @@
 #define NUMBERCASTER_HPP
 
 #include <string>
+#include <cstdlib>
+#include <iostream>
+#include <sstream>
 
-#define INTEGER 0
-#define DOUBLE 1
-#define FLOAT 2
-#define CHAR 3
+
+#define CHAR 0
+#define INTEGER 1
+#define DOUBLE 2
+#define FLOAT 3
 #define STRING 4
 
 class NumberCaster{
@@ -19,7 +23,7 @@ class NumberCaster{
 	std::string input;
 	bool (NumberCaster::*type_check[5])(std::string const &str);
 	
-	//! faire les case d'erreur
+	//! faire les cas d'erreur
 	/*
 		Que char 
 		Que string
