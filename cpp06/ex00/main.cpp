@@ -9,5 +9,7 @@ int main(int ac, char **av){
 	}
 	NumberCaster test(av[1]);
 
+	test.printAllCast();
+
 	return 0;
 }

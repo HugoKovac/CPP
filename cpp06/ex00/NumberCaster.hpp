@@ -16,15 +16,23 @@ class NumberCaster{
 	float float_casted;
 	double double_casted;
 	char char_casted;
-	std::string const input;
+	std::string input;
 	bool (NumberCaster::*type_check[5])(std::string const &str);
 	
+	//! faire les case d'erreur
+	/*
+		Que char 
+		Que string
+		Overflow
+		Value : 0
+	*/
 	bool is_integer(std::string const &str);
 	bool is_double(std::string const &str);
-	bool is_float(std::string const &str);//!didn't work
+	bool is_float(std::string const &str);
 	bool is_char(std::string const &str);
-	bool is_str(std::string const &str);//* just all str like "dsf45T864f"
+	bool is_str(std::string const &str);
 	void what_is_it(std::string const &str);
+	void cast_all();
 public:
 	NumberCaster(std::string const &src);
 	NumberCaster(NumberCaster const &src);
