@@ -104,7 +104,7 @@ void NumberCaster::cast_all(){
 void NumberCaster::printAllCast(){
 	if (it_is != STRING)
 	{
-		if (static_cast<int> (char_casted) < 32 || static_cast<int> (char_casted)  > 126)
+		if (int_casted < 32 || int_casted > 126)
 			std::cout << "char: not displayable" << std::endl;
 		else
 			std::cout << "char: " << "\'" << static_cast<char>(char_casted) << "\'" << std::endl;

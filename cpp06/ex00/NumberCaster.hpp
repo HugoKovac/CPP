@@ -25,8 +25,6 @@ class NumberCaster{
 	
 	//! faire les cas d'erreur
 	/*
-		Que char 
-		Que string
 		Overflow
 		Value : 0
 	*/
