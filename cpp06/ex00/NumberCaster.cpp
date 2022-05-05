@@ -11,6 +11,24 @@ void NumberCaster::what_is_it(std::string const &str){
 	}
 }
 
+NumberCaster::NumberCaster(NumberCaster const &src){
+	*this = src;
+}
+
+NumberCaster &NumberCaster::operator=(NumberCaster const &rhs){
+	it_is = rhs.it_is;
+	int_casted = rhs.int_casted;
+	float_casted = rhs.float_casted;
+	double_casted = rhs.double_casted;
+	char_casted = rhs.char_casted;
+	input = rhs.input;
+	for (int i = 0; i < 5; i++)
+		type_check[i] = rhs.type_check[i];
+	for (int i = 0; i < 5; i++)
+		cmpStr[i] = rhs.cmpStr[i];
+	return *this;
+}
+
 NumberCaster::NumberCaster(std::string const &src) : it_is(-1), input(src), inf_or_nan(-1){
 	cmpStr[0] = "+inf";
 	cmpStr[1] = "+inff";
@@ -21,6 +39,8 @@ NumberCaster::NumberCaster(std::string const &src) : it_is(-1), input(src), inf_
 		if (input.compare(cmpStr[i]) == 0)
 		{
 			inf_or_nan = i;
+			inf_or_nan = (inf_or_nan == 1 ? 0 : inf_or_nan);
+			inf_or_nan = (inf_or_nan == 3 ? 2 : inf_or_nan);
 			break ;
 		}
 	type_check[CHAR] = &NumberCaster::is_char;
@@ -107,10 +127,10 @@ void NumberCaster::cast_all(){
 			double_casted = static_cast<double>(char_casted);
 			break;
 		case STRING :
-			std::cout << "char: not displayable" << std::endl;
-			std::cout << "int: not displayable" << std::endl;
-			std::cout << "float: not displayable" << std::endl;
-			std::cout << "double: not displayable" << std::endl;
+			std::cout << "char: Mauvaise input" << std::endl;
+			std::cout << "int: Mauvaise input" << std::endl;
+			std::cout << "float: Mauvaise input" << std::endl;
+			std::cout << "double: Mauvaise input" << std::endl;
 			break;
 	}
 	
@@ -120,7 +140,7 @@ void NumberCaster::printAllCast(){
 	if (it_is != STRING && inf_or_nan == -1)
 	{
 		if (int_casted < 32 || int_casted > 126)
-			std::cout << "char: not displayable" << std::endl;
+			std::cout << "char: Non displayable" << std::endl;
 		else
 			std::cout << "char: " << "\'" << static_cast<char>(char_casted) << "\'" << std::endl;
 		std::cout << "int: " << int_casted << std::endl;
@@ -136,9 +156,9 @@ void NumberCaster::printAllCast(){
 			std::cout << std::endl;
 	}
 	else if (inf_or_nan != -1){
-		std::cout << "char: " << cmpStr[inf_or_nan] << std::endl;
-		std::cout << "int: " << cmpStr[inf_or_nan] << std::endl;
-		std::cout << "float: " << cmpStr[inf_or_nan] << std::endl;
+		std::cout << "char: " << "impossible" << std::endl;
+		std::cout << "int: " << "impossible" << std::endl;
+		std::cout << "float: " << cmpStr[inf_or_nan] << "f" << std::endl;
 		std::cout << "double: " << cmpStr[inf_or_nan] << std::endl;
 	}
 }

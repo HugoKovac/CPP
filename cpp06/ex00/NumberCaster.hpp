@@ -39,8 +39,8 @@ class NumberCaster{
 	void cast_all();
 public:
 	NumberCaster(std::string const &src);
-	NumberCaster(NumberCaster const &src);
-	NumberCaster &operator=(NumberCaster const &rhs);
+	NumberCaster(NumberCaster const &src);//! a faire
+	NumberCaster &operator=(NumberCaster const &rhs);//! a faire
 	~NumberCaster(){}
 
 	void printAllCast();
