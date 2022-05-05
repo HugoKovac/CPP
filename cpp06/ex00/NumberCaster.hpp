@@ -25,11 +25,6 @@ class NumberCaster{
 	std::string cmpStr[5];
 	int inf_or_nan;
 	
-	//! faire les cas d'erreur
-	/*
-		Overflow
-		Value : 0
-	*/
 	bool is_integer(std::string const &str);
 	bool is_double(std::string const &str);
 	bool is_float(std::string const &str);
@@ -39,8 +34,8 @@ class NumberCaster{
 	void cast_all();
 public:
 	NumberCaster(std::string const &src);
-	NumberCaster(NumberCaster const &src);//! a faire
-	NumberCaster &operator=(NumberCaster const &rhs);//! a faire
+	NumberCaster(NumberCaster const &src);
+	NumberCaster &operator=(NumberCaster const &rhs);
 	~NumberCaster(){}
 
 	void printAllCast();
