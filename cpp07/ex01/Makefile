@@ -1,4 +1,4 @@
-NAME = Template
+NAME = Iter
 CC = c++
 SRCS = main.cpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
