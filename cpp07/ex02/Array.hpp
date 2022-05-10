@@ -14,7 +14,19 @@ public:
 	Array(unsigned int const &n) : _size(n){
 		_data = new T[n];
 	}
+	Array(Array const &src) : _size(src._size){
+		_data = new T[_size];
+		for (unsigned int i = 0; i < _size; i++)
+			_data[i] = src._data[i];
+	}
 	~Array(){delete [] _data;}
+	Array &operator=(Array const &rhs){
+		_size = rhs._size;
+		_data = new T[_size];
+		for (unsigned int i = 0; i < _size; i++)
+			_data[i] = rhs._data[i];
+		return *this;
+	}
 	class OutOfMemory : public std::exception{
 		const char* what() const throw(){
 			return ("Out of memory!");
