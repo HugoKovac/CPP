@@ -11,10 +11,11 @@ class Array{
 	unsigned int _size;
 public:
 	Array() : _data(NULL), _size(0){}
-	Array(unsigned int const &n) : _size(n){//!if n not valid
+	Array(unsigned int const &n) : _size(n){
 		_data = new T[n];
 	}
-	class OutOfMemory : public std::exception{//! wromg return of what
+	~Array(){delete [] _data;}
+	class OutOfMemory : public std::exception{
 		const char* what() const throw(){
 			return ("Out of memory!");
 		}
