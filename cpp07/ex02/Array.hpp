@@ -2,6 +2,8 @@
 #define ARRAY_HPP
 
 #include <exception>
+#include <stdlib.h>
+#include <iostream>
 
 template <typename T>
 class Array{
@@ -11,21 +13,18 @@ public:
 	Array() : _data(NULL), _size(0){}
 	Array(unsigned int const &n) : _size(n){//!if n not valid
 		_data = new T[n];
-		for (unsigned int i = 0; i < n; i++)
-			_data[i] = 0;
 	}
-	class OutOfMemory : public std::exception{
-		virtual const char* what() const throw(){
-			return "Out of memory!";
+	class OutOfMemory : public std::exception{//! wromg return of what
+		const char* what() const throw(){
+			return ("Out of memory!");
 		}
 	};
-	T operator[](unsigned int n){
+	T &operator[](unsigned int n){
 		if (n >= _size)
 			throw OutOfMemory();
 		return this->_data[n];
 	}
 	unsigned int size(void){return _size;}
-
 };
 
 #endif
