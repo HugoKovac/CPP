@@ -11,6 +11,7 @@ int main(){
 		test.addNumber(9);
 		test.addNumber(11);
 		test.printAll();
+		std::cout << "shrotestSpan = " << test.shortestSpan() << std::endl;
 		std::cout << "longestSpan = " << test.longestSpan() << std::endl;
 		test.insertNumber(test2);
 		test.printAll();

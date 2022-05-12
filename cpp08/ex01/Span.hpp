@@ -5,15 +5,19 @@
 #include <exception>
 #include <stdexcept>
 #include <algorithm>
+#include <limits>
 
 class Span{
-	unsigned int const _maxSize;
+	unsigned int _maxSize;
 	unsigned int _currentSize;
 	std::vector<int> _data;
-public://! Faire forme canonique
+public:
 	Span(unsigned int const n);
+	Span(Span & src);
+	Span &operator=(Span & rhs);
 	void addNumber(int const n);
-	unsigned int longestSpan();
+	int longestSpan();
+	int shortestSpan();
 	template <typename T>
 	void insertNumber(T &toInsert){
 		if (_data.size() + toInsert.size() > _maxSize)
@@ -21,6 +25,7 @@ public://! Faire forme canonique
 		_data.insert(_data.end(), toInsert.begin(), toInsert.end());
 	}
 	void printAll();
+	~Span(){}
 };
 
 #endif
