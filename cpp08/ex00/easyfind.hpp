@@ -3,15 +3,22 @@
 
 #include <iterator>
 #include <iostream>
+#include <algorithm>
+#include <exception>
+
+class NotFoundExcep : public std::exception{
+	public:
+		const char* what() const throw(){
+			return ("Argument not found");
+		}
+};
 
 template<typename T>
-typename T::iterator easyfind(T const &cont, int const &nb){
+typename T::iterator easyfind(T &cont, int const &nb){
 	typename T::iterator it;
-	for (it = cont.beg(); it != cont.end(); it++)
-	{
-		std::cout << *it << std::endl;
-		std::cout << nb << std::endl;
-	}
+	it = std::find(cont.begin(), cont.end(), nb);
+	if (it == cont.end())
+		throw NotFoundExcep();
 	return it;
 }
 
