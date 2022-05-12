@@ -13,6 +13,7 @@ class Span{
 public://! Faire forme canonique
 	Span(unsigned int const n);
 	void addNumber(int const n);
+	unsigned int longestSpan();
 	template <typename T>
 	void insertNumber(T &toInsert){
 		if (_data.size() + toInsert.size() > _maxSize)

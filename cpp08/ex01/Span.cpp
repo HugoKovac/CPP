@@ -23,3 +23,6 @@ void Span::printAll(){
 	std::cout << "}" << std::endl;
 }
 
+unsigned int Span::longestSpan(){
+	return *(std::max_element(_data.begin(), _data.end())) - *(std::min_element(_data.begin(), _data.end()));
+}
